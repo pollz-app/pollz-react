@@ -1,0 +1,26 @@
+{
+  "name": "pollz-react",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Damien Assamy <damien.assany@gmail.com>",
+  "license": "ISC",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/module.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "pollz-js": "latest",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "2.9.3",
+    "@parcel/transformer-typescript-types": "2.9.3",
+    "@types/react": "^18.2.22",
+    "parcel": "latest",
+    "typescript": ">=3.0.0"
+  }
+}
