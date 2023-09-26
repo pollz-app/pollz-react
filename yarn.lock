@@ -1506,9 +1506,9 @@ picomatch@^2.3.1:
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 pollz-js@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/pollz-js/-/pollz-js-1.0.3.tgz#587ca9233212f325321de3579fa54be46ffb25a5"
-  integrity sha512-DfOHEhiuKjUW4n0WH7zcMrCoXeull0+1QhunZI1JlxPFCfH9mb96T5oMbe1YqEvGnUvkHy/CAwpeGVBdHE7PGw==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/pollz-js/-/pollz-js-1.0.5.tgz#9f80e97d8e7fc8e53c3ef5b024c644d549bbafdd"
+  integrity sha512-JTb9KqOiUgNM6BzfupXJhmxF+VUTgkl4DIpXt1od76GdqxNTVsk3xK2GKoSjDiLHYkO+BokrvFHoSbdmUMjwqg==
   dependencies:
     socket.io-client "^4.7.1"
 
