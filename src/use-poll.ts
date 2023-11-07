@@ -1,15 +1,18 @@
-import { EntryIdType, PollWithOptions } from "pollz-js";
+import { EntryIdType, OrderBy, PollWithOptions } from "pollz-js";
 import React, { useCallback, useEffect } from "react";
 import { usePollz } from "./use-pollz";
 
-export const usePoll = (pollId: EntryIdType, options?: { listen: boolean }) => {
+export const usePoll = (
+  pollId: EntryIdType,
+  options?: { listen: boolean; orderOptionsBy?: OrderBy }
+) => {
   const { sdk } = usePollz();
 
   const [poll, setPoll] = React.useState<PollWithOptions | null>(null);
 
   const fetch = useCallback(() => {
-    sdk.get(pollId).then(setPoll);
-  }, [pollId]);
+    sdk.get(pollId, options?.orderOptionsBy).then(setPoll);
+  }, [pollId, options?.orderOptionsBy]);
 
   useEffect(() => {
     fetch();
