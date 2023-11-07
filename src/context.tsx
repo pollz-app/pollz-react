@@ -13,15 +13,20 @@ export const PollzContext = createContext<
 >(undefined);
 
 export const PollzProvider: FC<
-  PropsWithChildren<{ appId: string; appSecret: string }>
+  PropsWithChildren<
+    | { appId: string; appSecret: string }
+    | { appId?: undefined; appSecret?: undefined }
+  >
 > = ({ children, appId, appSecret }) => {
   const sdk = useRef(new PollzSDK());
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    sdk.current.init({ appId, appSecret }).then(() => {
-      setInitialized(true);
-    });
+    if (appId && appSecret) {
+      sdk.current.init({ appId, appSecret }).then(() => {
+        setInitialized(true);
+      });
+    }
   }, [appId, appSecret]);
 
   return (
