@@ -17,7 +17,7 @@ export const PollsList = () => {
 
   return (
     <ul>
-      {polls.map((poll) => (
+      {polls.items.map((poll) => (
         <PollRow key={poll.id} onUpdate={handleUpdate} poll={poll} />
       ))}
     </ul>

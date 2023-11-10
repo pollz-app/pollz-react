@@ -1119,9 +1119,9 @@ electron-to-chromium@^1.4.526:
   integrity sha512-EafxEiEDzk2aLrdbtVczylHflHdHkNrpGNHIgDyA63sUQLQVS2ayj2hPw3RsVB42qkwURH+T2OxV7kGPUuYszA==
 
 engine.io-client@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.2.tgz#8709e22c291d4297ae80318d3c8baeae71f0e002"
-  integrity sha512-CQZqbrpEYnrpGqC07a9dJDz4gePZUgTPMU3NKJPSeQOyw27Tst4Pl3FemKoFGAlHzgZmKjoRmiJvbWfhCXUlIg==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.3.tgz#4cf6fa24845029b238f83c628916d9149c399bc5"
+  integrity sha512-9Z0qLB0NIisTRt1DZ/8U2k12RJn8yls/nXMZLn+/N8hANT3TcYjKFKcwbw5zFQiN4NTde3TSY9zb79e1ij6j9Q==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
@@ -1506,9 +1506,9 @@ picomatch@^2.3.1:
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 pollz-js@^1.0.1:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/pollz-js/-/pollz-js-1.0.9.tgz#609d79f9f297d29b8fbcb83b5ef18a38bda32215"
-  integrity sha512-jNjcpN0van2ptNnH5GwNordEma+OjoDGqzhxd2ozHrw00poirOmwRBcm/Tf9GE7Zjv8pkedg53+PvIv6Ggl/Tw==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/pollz-js/-/pollz-js-1.0.10.tgz#74fdcaa522c46d7107810c63762e003ccf6fb9ec"
+  integrity sha512-LqrC8pTJXLkW9Rn4bJCFhUhlP6ZJyhpjbNEXsb8QqZabnAdl+d9YmmJrlHeL7S+dKlXy3KLapQ6cgRQTgUcTyA==
   dependencies:
     socket.io-client "^4.7.1"
 

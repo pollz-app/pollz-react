@@ -8,7 +8,7 @@
     "parcel": "^2.9.3"
   },
   "dependencies": {
-    "pollz-js": "latest",
+    "pollz-js": "^1.0.10",
     "react-dom": "^18.2.0"
   }
 }

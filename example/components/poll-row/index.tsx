@@ -29,8 +29,8 @@ export const PollRow: FC<Props> = ({ poll: { id }, onUpdate }) => {
 
   return poll ? (
     <li key={id}>
-      <h3>{poll.title}</h3>
-      <p>{poll.title}</p>
+      <h3>{poll.name}</h3>
+      <p>{poll.name}</p>
       <p>Options</p>
       <ul>
         {poll.options.map((option) => (
