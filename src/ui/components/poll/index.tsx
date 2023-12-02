@@ -44,7 +44,7 @@ export const Poll: React.FC<Props> = ({
   if (!poll) {
     return (
       <NoPollWrapper>
-        <ActivityIndicator />
+        <ActivityIndicator size={30} />
       </NoPollWrapper>
     );
   }

@@ -26,7 +26,7 @@ export const OptionRow: React.FC<Props> = ({
         {selectedOptionIds.includes(option.id) && (
           <>
             {pollTypeId === PollTypes.MultipleChoice ? (
-              <IoIosCheckmark color={"white"} size={14} />
+              <IoIosCheckmark color={"white"} size={23} />
             ) : null}
 
             {pollTypeId === PollTypes.SingleChoice ? <Tick /> : null}

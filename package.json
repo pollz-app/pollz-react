@@ -20,6 +20,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/outfit": "^5.0.8",
     "pollz-js": "^1.0.1",
     "react": "^18.2.0",
     "react-icons": "^4.12.0"
@@ -34,6 +35,7 @@
     "@storybook/addon-knobs": "^7.0.2",
     "@storybook/addon-links": "^7.6.3",
     "@storybook/addon-onboarding": "^1.0.9",
+    "@storybook/addon-themes": "^7.6.3",
     "@storybook/blocks": "^7.6.3",
     "@storybook/react": "^7.6.3",
     "@storybook/react-vite": "^7.6.3",

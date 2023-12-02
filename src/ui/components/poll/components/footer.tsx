@@ -23,7 +23,7 @@ export const Footer: React.FC<Props> = ({
     >
       <Row>
         <VoteText>{confirmText}</VoteText>
-        {loading && <ActivityIndicator color={"white"} />}
+        {loading && <ActivityIndicator size={10} color={"white"} />}
       </Row>
     </VoteButton>
   );

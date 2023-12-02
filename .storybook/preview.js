@@ -2,9 +2,7 @@ import { ProviderFn } from "../src/ui/helpers/provider";
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {
-  applyDecorators: (Story) => {
-    return ProviderFn(Story);
-  },
+  decorators: [ProviderFn],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

@@ -2067,6 +2067,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/inter@npm:^5.0.15":
+  version: 5.0.15
+  resolution: "@fontsource/inter@npm:5.0.15"
+  checksum: 2709e1926efcffb9f2e92c77d17331ccbd39d4e06c205ae0b43beed081db1ded6782f3e6a52e9ba5b3a98adb267951f4a16e19c46fd4905be767ed638cf8dc87
+  languageName: node
+  linkType: hard
+
+"@fontsource/outfit@npm:^5.0.8":
+  version: 5.0.8
+  resolution: "@fontsource/outfit@npm:5.0.8"
+  checksum: 37cac46c34d03e2fdb384e0ad583b429b9e61b130bd54003898afab2ac62da8f9977e3732e7678a2d326c51ae46a02b9ed27a21091a2e0ea545d1c59cd706ee6
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -4207,6 +4221,15 @@ __metadata:
     "@storybook/global": "npm:^5.0.0"
     ts-dedent: "npm:^2.0.0"
   checksum: afd850556982e0fa8768336663470943b5c6108ee888a854e1265940d5776b60d9f5a7c2db3c0009e3466c217fdf66185646ddd80f20c608b1fac9542f76d07f
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-themes@npm:^7.6.3":
+  version: 7.6.3
+  resolution: "@storybook/addon-themes@npm:7.6.3"
+  dependencies:
+    ts-dedent: "npm:^2.0.0"
+  checksum: e8b5e3c00239a542ec188ab9b0cd1305513109dde463e7ca16bed62c74a281817a2b39a2f8b19237d612a7300a59495cbfd8a1182983c7cba55366b03781f08d
   languageName: node
   linkType: hard
 
@@ -11277,6 +11300,8 @@ __metadata:
     "@emotion/babel-plugin": "npm:^11.11.0"
     "@emotion/react": "npm:^11.11.1"
     "@emotion/styled": "npm:^11.11.0"
+    "@fontsource/inter": "npm:^5.0.15"
+    "@fontsource/outfit": "npm:^5.0.8"
     "@parcel/packager-ts": "npm:^2.10.3"
     "@parcel/transformer-typescript-types": "npm:^2.10.3"
     "@storybook/addon-actions": "npm:^7.6.3"
@@ -11285,6 +11310,7 @@ __metadata:
     "@storybook/addon-knobs": "npm:^7.0.2"
     "@storybook/addon-links": "npm:^7.6.3"
     "@storybook/addon-onboarding": "npm:^1.0.9"
+    "@storybook/addon-themes": "npm:^7.6.3"
     "@storybook/blocks": "npm:^7.6.3"
     "@storybook/react": "npm:^7.6.3"
     "@storybook/react-vite": "npm:^7.6.3"

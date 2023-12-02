@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { theme } from "../../../themes/base";
 
 export const Row = styled.div`
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
@@ -12,9 +13,10 @@ export const Circle = styled.button<{ active?: boolean }>`
   height: 20px;
   margin-right: 8px;
   border-radius: 10px;
-  border-width: 1px;
-  border-color: #aaa;
-  justify-content: center;
+  background: transparent;
+  border: 1px solid #aaa;
+  display: flex;
+  justify-content: stretch;
   align-items: center;
   ${({ active }) => active && `background-color: ${theme.colors.primary};`}
 `;

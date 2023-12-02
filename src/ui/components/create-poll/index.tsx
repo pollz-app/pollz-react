@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import { Poll, PollTypes } from "pollz-js";
 import { usePollz } from "../../../use-pollz";
 import { ActivityIndicator } from "../../commons/activity-indicator";
-import Switch from "../../commons/switch";
+import { Toggle } from "../../commons/toggle";
 import {
   BorderedInputField,
   CheckboxContainer,
@@ -14,7 +14,6 @@ import {
   InputField,
   InputLabel,
   OptionWrapper,
-  listStyles,
 } from "./styles";
 
 type Props = {
@@ -127,7 +126,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
       />
 
       <CheckboxContainer>
-        <Switch
+        <Toggle
           checked={pollTypeId === PollTypes.MultipleChoice}
           onChange={(value) =>
             setPollTypeId(
@@ -138,13 +137,20 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
         <CheckboxLabel>Allow multiple responses</CheckboxLabel>
       </CheckboxContainer>
 
-      <div style={listStyles}>
+      <div
+        style={{
+          border: "1px solid #aaa",
+          borderRadius: 5,
+          width: "100%",
+        }}
+      >
         {options.map((option, index) => {
           return (
             <OptionWrapper
+              key={`${option}-${index}`}
               isError={
                 option.trim() !== "" &&
-                options.filter((option) => option === option).length > 1
+                options.filter((o) => o === option).length > 1
               }
               isFirst={index === 0}
               isLast={index === options.length - 1}

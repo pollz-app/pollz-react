@@ -3,10 +3,11 @@ import { Text, TextSemiBold } from "../../commons/text";
 import { theme } from "../../themes/base";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 16px;
-  border-width: 1px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  border-color: #ddd;
   margin-bottom: 16px;
   background-color: white;
   gap: 16px;
@@ -14,14 +15,16 @@ export const Container = styled.div`
 `;
 export const InputLabel = styled(TextSemiBold)`
   font-size: 16px;
+  margin: 0;
   font-weight: bold;
 `;
 
 export const InputField = styled.input`
-  height: 40px;
+  display: flex;
   padding: 8px;
   flex-grow: 1;
-  font-family: Outfit_400Regular;
+  font-family: Outfit;
+  border: none;
 `;
 
 export const CreateButton = styled.button`
@@ -32,6 +35,7 @@ export const CreateButton = styled.button`
   justify-content: center;
   flex-direction: row;
   gap: 8px;
+  border: none;
 `;
 
 export const CreateButtonText = styled(Text)`
@@ -40,6 +44,7 @@ export const CreateButtonText = styled(Text)`
 `;
 
 export const CheckboxContainer = styled.div`
+  display: flex;
   flex-direction: row;
   align-items: center;
 `;
@@ -50,15 +55,16 @@ export const CheckboxLabel = styled(Text)`
 `;
 
 export const BorderedInputField = styled(InputField)`
-  border-color: #aaa;
-  border-width: 1px;
+  border: 1px solid #aaa;
   border-radius: 5px;
 `;
 
 export const listStyles = {
   borderRadius: 5,
-  borderWidth: 1,
+  border: "1px solid #aaa",
   borderColor: "#aaa",
+  display: "flex",
+  flexDirection: "column",
 };
 
 export const OptionWrapper = styled.div<{
@@ -66,11 +72,17 @@ export const OptionWrapper = styled.div<{
   isLast: boolean;
   isError: boolean;
 }>`
+  display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom-width: ${({ isLast }) => (isLast ? "0px" : "1px")};
-  border-color: #aaa;
+  border-bottom: ${({ isLast }) => (isLast ? "0px" : "1px solid #aaa")};
   background-color: ${({ isError }) => (isError ? "#fdd" : "transparent")};
   border-radius: ${({ isFirst, isLast }) =>
     isFirst ? "4px 4px 0px 0px" : isLast ? "0px 0px 5px 5px" : "0px"};
+
+  input {
+    border: none;
+    font-family: Outfit;
+    background-color: transparent;
+  }
 `;

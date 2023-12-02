@@ -18,7 +18,7 @@ const WithPollz: React.FC<PropsWithChildren> = ({ children }) => {
   if (!initialized) {
     return (
       <CenteredView>
-        <ActivityIndicator />
+        <ActivityIndicator size={30} />
       </CenteredView>
     );
   }

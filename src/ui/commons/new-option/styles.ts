@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const AddOptionContainer = styled.div`
+  display: flex;
   flex-direction: row;
   align-items: center;
 `;
@@ -8,15 +9,18 @@ export const AddOptionContainer = styled.div`
 export const AddOptionInput = styled.input`
   display: flex;
   flex: 1;
-  height: 40px;
-  border-width: 1px;
+  border: 1px solid #aaa;
   border-radius: 5px;
   margin-right: 8px;
-  padding: 8px;
-  border-color: #aaa;
+  padding: 10px;
+  font-family: Outfit;
 `;
 
 export const AddOptionButton = styled.button`
+  display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `;
