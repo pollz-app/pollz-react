@@ -9,14 +9,17 @@ export const Text = styled.p`
 export const TextMedium = styled.p`
   font-family: "Outfit";
   font-weight: 500;
+  margin: 0;
 `;
 
 export const TextSemiBold = styled.p`
   font-family: "Outfit";
-  font-weight: 500;
+  font-weight: 700;
+  margin: 0;
 `;
 
 export const TextBlack = styled.p`
   font-family: "Outfit";
   font-weight: 900;
+  margin: 0;
 `;

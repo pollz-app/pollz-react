@@ -9,6 +9,7 @@ export const Row = styled.div`
 `;
 
 export const Circle = styled.button<{ active?: boolean }>`
+  padding: 0;
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -16,7 +17,7 @@ export const Circle = styled.button<{ active?: boolean }>`
   background: transparent;
   border: 1px solid #aaa;
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
   ${({ active }) => active && `background-color: ${theme.colors.primary};`}
 `;

@@ -20,6 +20,7 @@ export const VoteButton = styled.button`
 export const OptionLabel = styled(Text)`
   display: flex;
   font-size: 16px;
+  flex: 1;
 `;
 
 export const Tick = styled.div`
@@ -34,6 +35,7 @@ export const OptionWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: 8px;
+  cursor: pointer;
 `;
 
 export const PollName = styled(TextSemiBold)`
@@ -76,5 +78,5 @@ export const VotedWrapper = styled.div`
   justify-content: center;
   display: flex;
   gap: 10px;
-  margin-vertical: 20px;
+  margin: 20px 0;
 `;

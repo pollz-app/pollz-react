@@ -10,7 +10,7 @@ type Props = {
 export const Greetings: React.FC<Props> = ({ greetingsText }) => {
   return (
     <VotedWrapper>
-      <IoIosCheckmarkCircle size={60} color={theme.colors.primary} />
+      <IoIosCheckmarkCircle size={50} color={theme.colors.primary} />
       <VotedText>{greetingsText}</VotedText>
     </VotedWrapper>
   );
