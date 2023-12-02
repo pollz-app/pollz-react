@@ -13,8 +13,9 @@
   ],
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build",
-    "storybook": "parcel src/storybook/index.html"
+    "build": "parcel build src/index.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -25,8 +26,8 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
-    "@parcel/packager-ts": "2.9.3",
-    "@parcel/transformer-typescript-types": "2.9.3",
+    "@parcel/packager-ts": "^2.10.3",
+    "@parcel/transformer-typescript-types": "^2.10.3",
     "@storybook/addon-actions": "^7.6.3",
     "@storybook/addon-essentials": "^7.6.3",
     "@storybook/addon-interactions": "^7.6.3",
@@ -35,13 +36,19 @@
     "@storybook/addon-onboarding": "^1.0.9",
     "@storybook/blocks": "^7.6.3",
     "@storybook/react": "^7.6.3",
+    "@storybook/react-vite": "^7.6.3",
     "@storybook/react-webpack5": "^7.6.3",
     "@storybook/test": "^7.6.3",
+    "@types/prop-types": "^15",
     "@types/react": "^18.2.40",
     "@types/react-dom": "^18.2.17",
     "parcel": "latest",
+    "prop-types": "^15.8.1",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.3",
-    "typescript": ">=3.0.0"
-  }
+    "string-width": "^7.0.0",
+    "typescript": ">=3.0.0",
+    "vite": "^5.0.4"
+  },
+  "packageManager": "yarn@4.0.2"
 }

@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
-import React from "react";
 import { Poll } from ".";
 import { storyOf } from "../../helpers/storyOf";
 
