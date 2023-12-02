@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { theme } from "../../themes/base";
 import { ActivityIndicator } from "../activity-indicator";
 import { AddOptionButton, AddOptionContainer, AddOptionInput } from "./styles";
 
 type Props = {
-  newOption: string;
-  setNewOption: React.Dispatch<React.SetStateAction<string>>;
   addingOption: boolean;
-  handleAddOption: () => void;
+  handleAddOption: (newOption: string) => Promise<void>;
 };
 
 export const NewOption: React.FC<Props> = ({
-  newOption,
-  setNewOption,
   addingOption,
   handleAddOption,
 }) => {
+  const [newOption, setNewOption] = useState("");
+
+  const handleClick = useCallback(async () => {
+    if (newOption.trim()) {
+      await handleAddOption(newOption);
+      setNewOption("");
+    }
+  }, [newOption, handleAddOption]);
+
   return (
     <AddOptionContainer>
       <AddOptionInput
@@ -28,7 +33,7 @@ export const NewOption: React.FC<Props> = ({
       {addingOption ? (
         <ActivityIndicator size={30} />
       ) : (
-        <AddOptionButton disabled={!newOption.trim()} onClick={handleAddOption}>
+        <AddOptionButton disabled={!newOption.trim()} onClick={handleClick}>
           <IoIosAdd name="add" size={30} color={theme.colors.primary} />
         </AddOptionButton>
       )}

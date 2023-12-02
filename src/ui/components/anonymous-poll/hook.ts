@@ -1,20 +1,19 @@
 import { PollTypes } from "pollz-js";
 import { useEffect, useMemo, useState } from "react";
-import { usePoll } from "../../../use-poll";
+import { useAnonymousPoll } from "../../../use-anonymous-poll";
 import { usePollz } from "../../../use-pollz";
 
 export const hook = (
-  pollId: number,
-  userId: string,
+  pollToken: string,
+  userId: string | undefined,
   confirmToVote: boolean,
   withoutFeedback: boolean,
   onSubmitted?: (poll: any) => void
 ) => {
   const { sdk } = usePollz();
-  const { poll } = usePoll(pollId, { listen: true });
+  const { poll } = useAnonymousPoll(pollToken);
   const [selectedOptionIds, setSelectedOptionIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(false);
-  const [addingOption, setAddingOption] = useState(false);
   const [voted, setVoted] = useState(false);
 
   const initialSelectedOptionIds = useMemo(() => {
@@ -36,7 +35,7 @@ export const hook = (
       setLoading(true);
 
       const promises = optionIds.map((id) =>
-        sdk.vote(pollId, id, userId, poll.pollType.id)
+        sdk.voteAnonymously(pollToken, id, userId)
       );
 
       const responses = await Promise.all(promises);
@@ -50,19 +49,6 @@ export const hook = (
     } catch (error) {
       console.error("Error submitting vote:", error);
       setLoading(false);
-    }
-  };
-
-  const handleAddOption = async (newOption: string) => {
-    if (newOption.trim() !== "") {
-      try {
-        setAddingOption(true);
-        await sdk.addOption(pollId, newOption.trim());
-      } catch (error) {
-        console.error("Error adding option:", error);
-      } finally {
-        setAddingOption(false);
-      }
     }
   };
 
@@ -101,7 +87,5 @@ export const hook = (
     loading,
     voted,
     handleVote,
-    handleAddOption,
-    addingOption,
   };
 };
