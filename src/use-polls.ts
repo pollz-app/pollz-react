@@ -18,7 +18,7 @@ export const usePolls = (
   });
 
   const fetch = useCallback(() => {
-    sdk.getAll(page, itemsPerPage, orderBy).then(setPolls);
+    sdk.polls.getAll(page, itemsPerPage, orderBy).then(setPolls);
   }, [page, itemsPerPage, orderBy]);
 
   useEffect(() => {

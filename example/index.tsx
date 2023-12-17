@@ -7,7 +7,10 @@ import { PollsStateProvider } from "./utils/state";
 const container = document.getElementById("app");
 const root = createRoot(container!);
 root.render(
-  <PollzProvider appId="YOUR_APP_ID" appSecret="YOUR_APP_SECRET">
+  <PollzProvider
+    appId="9973a8b9-ca11-451a-b035-c5ad9633fb06"
+    appSecret="08fRrLjhM4frjILtO8ylBInPozQ="
+  >
     <PollsStateProvider>
       <App />
     </PollsStateProvider>

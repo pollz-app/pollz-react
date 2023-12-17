@@ -8,7 +8,7 @@ export const hook = (
   userId: string,
   confirmToVote: boolean,
   withoutFeedback: boolean,
-  onSubmitted?: (poll: any) => void
+  onSubmitted?: (responses: number[]) => void
 ) => {
   const { sdk } = usePollz();
   const { poll } = usePoll(pollId, { listen: true });
@@ -35,14 +35,10 @@ export const hook = (
     try {
       setLoading(true);
 
-      const promises = optionIds.map((id) =>
-        sdk.vote(pollId, id, userId, poll.pollType.id)
-      );
-
-      const responses = await Promise.all(promises);
+      await sdk.polls.vote(poll.pollType.id, pollId, optionIds, userId);
 
       setLoading(false);
-      onSubmitted?.(responses[responses.length - 1]);
+      onSubmitted?.(optionIds);
 
       if (!withoutFeedback) {
         setVoted(true);
@@ -57,7 +53,7 @@ export const hook = (
     if (newOption.trim() !== "") {
       try {
         setAddingOption(true);
-        await sdk.addOption(pollId, newOption.trim());
+        await sdk.pollOptions(pollId).addOption(newOption.trim());
       } catch (error) {
         console.error("Error adding option:", error);
       } finally {

@@ -11,7 +11,7 @@ export const usePoll = (
   const [poll, setPoll] = React.useState<PollWithOptions | null>(null);
 
   const fetch = useCallback(() => {
-    sdk.get(pollId, options?.orderOptionsBy).then(setPoll);
+    sdk.polls.get(pollId, options?.orderOptionsBy).then(setPoll);
   }, [pollId, options?.orderOptionsBy]);
 
   useEffect(() => {
@@ -20,13 +20,13 @@ export const usePoll = (
 
   useEffect(() => {
     if (options?.listen) {
-      const unsubscribe = sdk.listen(pollId, setPoll);
+      const unsubscribe = sdk.polls.listen(pollId, setPoll);
 
       return () => {
         unsubscribe();
       };
     }
-  }, [options?.listen]);
+  }, [options?.listen, pollId]);
 
   return { poll, refetch: fetch };
 };

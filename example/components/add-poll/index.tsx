@@ -10,7 +10,7 @@ export const AddPoll = () => {
   const createPoll: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    const poll = await sdk.create({
+    const poll = await sdk.polls.create({
       name: pollName,
       options: ["Friday", "Saturday"],
       pollTypeId: 1,

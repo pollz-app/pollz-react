@@ -8,7 +8,7 @@ export const hook = (
   userId: string | undefined,
   confirmToVote: boolean,
   withoutFeedback: boolean,
-  onSubmitted?: (poll: any) => void
+  onSubmitted?: (responses: number[]) => void
 ) => {
   const { sdk } = usePollz();
   const { poll } = useAnonymousPoll(pollToken);
@@ -34,14 +34,10 @@ export const hook = (
     try {
       setLoading(true);
 
-      const promises = optionIds.map((id) =>
-        sdk.voteAnonymously(pollToken, id, userId)
-      );
-
-      const responses = await Promise.all(promises);
+      await sdk.anonymous.voteAnonymously(pollToken, optionIds, userId);
 
       setLoading(false);
-      onSubmitted?.(responses[responses.length - 1]);
+      onSubmitted?.(optionIds);
 
       if (!withoutFeedback) {
         setVoted(true);

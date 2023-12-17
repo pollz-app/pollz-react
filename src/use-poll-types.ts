@@ -8,7 +8,7 @@ export const usePollTypes = () => {
   const [pollTypes, setPollTypes] = React.useState<PollType[] | null>(null);
 
   const fetch = React.useCallback(() => {
-    sdk.getPollTypes().then(setPollTypes);
+    sdk.pollTypes.getAll().then(setPollTypes);
   }, []);
 
   useEffect(() => {

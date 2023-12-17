@@ -1,25 +1,22 @@
-import { PollWithOptions } from "pollz-js";
-import React, { useCallback } from "react";
-import { usePolls } from "../../../dist";
-import { usePollsState } from "../../utils/state";
-import { PollRow } from "../poll-row";
+import React from "react";
+import { Poll, usePolls } from "../../../dist";
 
 export const PollsList = () => {
-  const { updatePoll } = usePollsState();
   const { polls } = usePolls();
 
-  const handleUpdate = useCallback(
-    (poll: PollWithOptions) => {
-      updatePoll(poll);
-    },
-    [updatePoll]
-  );
-
   return (
-    <ul>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gap: 20,
+      }}
+    >
       {polls.items.map((poll) => (
-        <PollRow key={poll.id} onUpdate={handleUpdate} poll={poll} />
+        <div style={{ display: "flex" }}>
+          <Poll pollId={poll.id} userId="EXAMPLE" />
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };

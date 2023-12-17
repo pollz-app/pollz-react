@@ -69,7 +69,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
         return;
       }
 
-      const poll = await sdk.create({
+      const poll = await sdk.polls.create({
         name: pollName,
         options: nonEmptyOptions,
         pollTypeId,

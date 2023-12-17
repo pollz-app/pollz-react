@@ -1,4 +1,4 @@
-import { Poll, PollWithOptions } from "@pollz/sdk";
+import { Poll, PollWithOptions } from "pollz-js";
 import React, { useCallback, useContext, useMemo, useReducer } from "react";
 
 type ContextType = {

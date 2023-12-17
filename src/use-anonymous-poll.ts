@@ -8,7 +8,7 @@ export const useAnonymousPoll = (pollToken: string) => {
   const [poll, setPoll] = React.useState<PollWithOptions | null>(null);
 
   const fetch = useCallback(() => {
-    sdk.getAnonymousPoll(pollToken).then(setPoll);
+    sdk.anonymous.getAnonymousPoll(pollToken).then(setPoll);
   }, [pollToken]);
 
   useEffect(() => {

@@ -1,46 +1,12 @@
-import { Option, Poll, PollTypes, PollWithOptions } from "pollz-js";
-import React, { FC, useCallback, useEffect } from "react";
-import { usePoll, usePollz } from "../../../dist";
+import { Poll as PollType, PollWithOptions } from "pollz-js";
+import React, { FC } from "react";
+import { Poll } from "../../../dist";
 
 type Props = {
-  poll: Poll;
+  poll: PollType;
   onUpdate: (poll: PollWithOptions) => void;
 };
 
-export const PollRow: FC<Props> = ({ poll: { id }, onUpdate }) => {
-  const { sdk } = usePollz();
-  const { poll } = usePoll(id, { listen: true });
-
-  useEffect(() => {
-    if (poll) {
-      onUpdate(poll);
-    }
-  }, [poll, onUpdate]);
-
-  const vote = useCallback(
-    (option: Option) => {
-      if (!poll) {
-        return;
-      }
-      sdk.vote(id, option.id, "12456", PollTypes.MultipleChoice);
-    },
-    [poll, id]
-  );
-
-  return poll ? (
-    <li key={id}>
-      <h3>{poll.name}</h3>
-      <p>{poll.name}</p>
-      <p>Options</p>
-      <ul>
-        {poll.options.map((option) => (
-          <li key={option.id}>
-            <p>{option.label}</p>
-            <p>Votes: {option.voters.length}</p>
-            <button onClick={() => vote(option)}>Vote for this</button>
-          </li>
-        ))}
-      </ul>
-    </li>
-  ) : null;
+export const PollRow: FC<Props> = ({ poll: { id } }) => {
+  return <Poll pollId={id} userId="EXAMPLE_USER_ID" />;
 };
