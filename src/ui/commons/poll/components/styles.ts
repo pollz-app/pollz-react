@@ -21,3 +21,20 @@ export const Circle = styled.button<{ active?: boolean }>`
   align-items: center;
   ${({ active }) => active && `background-color: ${theme.colors.primary};`}
 `;
+export const OptionButtonLabel = styled.div`
+  padding: 5px;
+  font-size: 18px;
+`;
+export const OptionButtonWrapper = styled.button<{
+  backgroundColor: string;
+  borderColor: string;
+}>`
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  border-color: ${({ borderColor }) => borderColor};
+`;

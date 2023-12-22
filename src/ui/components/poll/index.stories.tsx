@@ -1,7 +1,8 @@
 import { action } from "@storybook/addon-actions";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, select } from "@storybook/addon-knobs";
 import { Meta, StoryObj } from "@storybook/react";
 import { Poll } from ".";
+import { PollPresentation } from "../../commons/types";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof Poll> = {
@@ -20,6 +21,11 @@ export const SingleChoice: Story = {
     pollId: 101,
     userId: "STORYBOOK_USER",
     onSubmitted: action("onSubmitted"),
+    presentation: select(
+      "presentation",
+      Object.values(PollPresentation),
+      PollPresentation.Default
+    ),
   },
 };
 

@@ -80,3 +80,11 @@ export const VotedWrapper = styled.div`
   gap: 10px;
   margin: 20px 0;
 `;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;

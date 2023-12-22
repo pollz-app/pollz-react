@@ -1,8 +1,10 @@
 import React from "react";
 import { BasePoll } from "../../commons/poll";
+import { PollPresentation } from "../../commons/types";
 import { hook } from "./hook";
 
 type Props = {
+  presentation?: PollPresentation;
   pollId: number;
   userId: string;
   onSubmitted?: (poll: any) => void;
@@ -22,6 +24,7 @@ export const Poll: React.FC<Props> = ({
   confirmText = "Vote",
   greetingsText = "Thanks for voting!",
   canAddOptions = false,
+  presentation = PollPresentation.Default,
 }) => {
   const {
     poll,
@@ -48,6 +51,7 @@ export const Poll: React.FC<Props> = ({
       handleVote={handleVote}
       loading={loading}
       confirmText={confirmText}
+      presentation={presentation}
     />
   );
 };
