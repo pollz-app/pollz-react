@@ -20,13 +20,17 @@ export const usePoll = (
 
   useEffect(() => {
     if (options?.listen) {
-      const unsubscribe = sdk.polls.listen(pollId, setPoll);
+      const unsubscribe = sdk.polls.listen(
+        pollId,
+        setPoll,
+        options?.orderOptionsBy
+      );
 
       return () => {
         unsubscribe();
       };
     }
-  }, [options?.listen, pollId]);
+  }, [options, pollId]);
 
   return { poll, refetch: fetch };
 };

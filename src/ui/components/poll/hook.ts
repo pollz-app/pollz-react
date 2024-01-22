@@ -68,21 +68,26 @@ export const hook = (
     switch (poll.pollType.id) {
       case PollTypes.SingleChoice:
         setSelectedOptionIds([optionId]);
+
+        if (!confirmToVote) {
+          handleVote([optionId]);
+        }
         break;
 
       case PollTypes.MultipleChoice:
-        setSelectedOptionIds((previousIds) =>
-          previousIds.includes(optionId)
+        setSelectedOptionIds((previousIds) => {
+          const newIds = previousIds.includes(optionId)
             ? previousIds.filter((id) => id !== optionId)
-            : [...previousIds, optionId]
-        );
+            : [...previousIds, optionId];
+
+          if (!confirmToVote) {
+            handleVote(newIds);
+          }
+          return newIds;
+        });
         break;
       default:
         break;
-    }
-
-    if (!confirmToVote) {
-      handleVote([optionId]);
     }
   };
 

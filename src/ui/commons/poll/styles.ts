@@ -15,6 +15,7 @@ export const VoteButton = styled.button`
   justify-content: center;
   margin-top: 10px;
   border: none;
+  cursor: pointer;
 `;
 
 export const OptionLabel = styled(Text)`
