@@ -33,7 +33,9 @@ export const OptionRow: React.FC<Props> = ({
               <IoIosCheckmark color={"white"} size={30} />
             ) : null}
 
-            {pollTypeId === PollTypes.SingleChoice ? <Tick /> : null}
+            {[PollTypes.Scale, PollTypes.SingleChoice].includes(pollTypeId) ? (
+              <Tick />
+            ) : null}
           </>
         )}
       </Circle>

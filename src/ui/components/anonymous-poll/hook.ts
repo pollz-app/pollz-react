@@ -52,6 +52,7 @@ export const hook = (
     if (!poll) return;
 
     switch (poll.pollType.id) {
+      case PollTypes.Scale:
       case PollTypes.SingleChoice:
         setSelectedOptionIds([optionId]);
         break;
