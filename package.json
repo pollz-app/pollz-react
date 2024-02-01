@@ -21,7 +21,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/outfit": "^5.0.8",
-    "pollz-js": "^1.0.17",
+    "pollz-js": "^1.0.19",
     "react": "^18.2.0",
     "react-icons": "^4.12.0"
   },

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { IoIosAdd } from "react-icons/io";
-import { theme } from "../../themes/base";
+import { usePollz } from "../../../use-pollz";
 import { ActivityIndicator } from "../activity-indicator";
 import { AddOptionButton, AddOptionContainer, AddOptionInput } from "./styles";
 
@@ -13,6 +13,7 @@ export const NewOption: React.FC<Props> = ({
   addingOption,
   handleAddOption,
 }) => {
+  const { theme } = usePollz();
   const [newOption, setNewOption] = useState("");
 
   const handleClick = useCallback(async () => {
@@ -34,7 +35,7 @@ export const NewOption: React.FC<Props> = ({
         <ActivityIndicator size={30} />
       ) : (
         <AddOptionButton disabled={!newOption.trim()} onClick={handleClick}>
-          <IoIosAdd name="add" size={30} color={theme.colors.primary} />
+          <IoIosAdd name="add" size={30} color={theme?.colors.primary} />
         </AddOptionButton>
       )}
     </AddOptionContainer>

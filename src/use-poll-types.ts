@@ -2,6 +2,9 @@ import { PollType } from "pollz-js";
 import React, { useEffect } from "react";
 import { usePollz } from "./use-pollz";
 
+/**
+ * Fetches all poll types.
+ */
 export const usePollTypes = () => {
   const { sdk } = usePollz();
 

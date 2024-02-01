@@ -6,9 +6,9 @@ export const VoteText = styled(Text)`
   color: white;
   font-size: 16px;
 `;
-export const VoteButton = styled.button`
+export const VoteButton = styled.button<{ color: string | undefined }>`
   display: flex;
-  background-color: ${theme.colors.primary};
+  background-color: ${({ color = theme.colors.primary }) => color};
   padding: 10px;
   border-radius: 5px;
   align-items: center;

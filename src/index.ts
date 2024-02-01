@@ -1,4 +1,5 @@
-export { PollzProvider } from "./context";
+export { PollzContext, PollzProvider } from "./context";
+export type { Theme } from "./context";
 export * from "./ui/components";
 export { useAnonymousPoll } from "./use-anonymous-poll";
 export { usePoll } from "./use-poll";

@@ -8,17 +8,17 @@ export const SwitchWrapper = styled.label`
   height: 21px;
 `;
 
-export const SwitchInput = styled.input`
+export const SwitchInput = styled.input<{ color: string | undefined }>`
   opacity: 0;
   width: 0;
   height: 0;
 
   &:checked + span {
-    background-color: ${theme.colors.primary};
+    background-color: ${({ color = theme.colors.primary }) => color};
   }
 
   &:focus + span {
-    box-shadow: 0 0 1px ${theme.colors.primary};
+    box-shadow: 0 0 1px ${({ color = theme.colors.primary }) => color};
   }
 
   &:checked + span:before {

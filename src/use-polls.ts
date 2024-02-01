@@ -2,6 +2,15 @@ import { OrderBy, PaginationMeta, Poll } from "pollz-js";
 import React, { useCallback, useEffect } from "react";
 import { usePollz } from "./use-pollz";
 
+/**
+ * Fetches all polls.
+ * @param page The page to fetch.
+ * @param itemsPerPage The number of items per page.
+ * @param orderBy The order of the items.
+ * @returns The polls and a function to refetch them.
+ * @example
+ * const { polls, refetch } = usePolls(1, 10, OrderBy.Desc);
+ */
 export const usePolls = (
   page?: number,
   itemsPerPage?: number,

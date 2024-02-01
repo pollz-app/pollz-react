@@ -27,8 +27,8 @@ export const InputField = styled.input`
   border: none;
 `;
 
-export const CreateButton = styled.button`
-  background-color: ${theme.colors.primary};
+export const CreateButton = styled.button<{ color?: string | undefined }>`
+  background-color: ${({ color = theme.colors.primary }) => color};
   padding: 10px;
   border-radius: 5px;
   align-items: center;

@@ -1,6 +1,7 @@
 import { Option, PollTypes } from "pollz-js";
 import React from "react";
 import { IoIosCheckmark } from "react-icons/io";
+import { usePollz } from "../../../../use-pollz";
 import { OptionLabel, OptionWrapper, Tick } from "../styles";
 import { Circle } from "./styles";
 
@@ -17,9 +18,12 @@ export const OptionRow: React.FC<Props> = ({
   handleSelectOption,
   pollTypeId,
 }) => {
+  const { theme } = usePollz();
+
   return (
     <OptionWrapper>
       <Circle
+        color={theme?.colors.primary}
         active={selectedOptionIds.includes(option.id)}
         onClick={() => handleSelectOption(option.id)}
       >

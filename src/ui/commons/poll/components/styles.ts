@@ -8,7 +8,10 @@ export const Row = styled.div`
   gap: 10px;
 `;
 
-export const Circle = styled.button<{ active?: boolean }>`
+export const Circle = styled.button<{
+  active?: boolean;
+  color: string | undefined;
+}>`
   padding: 0;
   width: 20px;
   height: 20px;
@@ -19,7 +22,8 @@ export const Circle = styled.button<{ active?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ active }) => active && `background-color: ${theme.colors.primary};`}
+  ${({ active, color = theme.colors.primary }) =>
+    active && `background-color: ${color};`}
 `;
 export const OptionButtonLabel = styled.div`
   padding: 5px;

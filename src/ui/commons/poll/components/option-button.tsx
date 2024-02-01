@@ -1,5 +1,6 @@
 import { Option } from "pollz-js";
 import React, { useCallback, useMemo } from "react";
+import { usePollz } from "../../../../use-pollz";
 import { theme } from "../../../themes/base";
 import { OptionButtonLabel, OptionButtonWrapper } from "./styles";
 
@@ -14,12 +15,15 @@ export const OptionButton: React.FC<Props> = ({
   option,
   selectedOptionIds,
 }) => {
+  const { theme: overrideTheme } = usePollz();
   const isSelected = useMemo(
     () => selectedOptionIds.includes(option.id),
     [selectedOptionIds, option.id]
   );
   const backgroundColor = isSelected ? "#5400a31f" : "white";
-  const borderColor = isSelected ? theme.colors.primary : "#ccc";
+  const borderColor = isSelected
+    ? overrideTheme?.colors.primary || theme.colors.primary
+    : "#ccc";
 
   const handleClick = useCallback(() => {
     handleSelectOption(option.id);

@@ -1,8 +1,7 @@
-import { PollWithOptions } from "pollz-js";
+import { PollTypes, PollWithOptions } from "pollz-js";
 import React from "react";
 import { ActivityIndicator } from "../activity-indicator";
 import { NewOption } from "../new-option";
-import { PollPresentation } from "../types";
 import { Footer } from "./components/footer";
 import { Greetings } from "./components/greetings";
 import { OptionButton } from "./components/option-button";
@@ -10,7 +9,6 @@ import { OptionRow } from "./components/option-row";
 import { NoPollWrapper, PollName, Row, Wrapper } from "./styles";
 
 type Props = {
-  presentation?: PollPresentation;
   poll: PollWithOptions | null;
   voted: boolean;
   greetingsText: string;
@@ -46,7 +44,6 @@ export const BasePoll: React.FC<Props> = ({
   handleVote,
   loading,
   confirmText,
-  presentation = PollPresentation.Default,
 }) => {
   if (!poll) {
     return (
@@ -72,7 +69,19 @@ export const BasePoll: React.FC<Props> = ({
               />
             </div>
           )}
-          {presentation === PollPresentation.Default ? (
+
+          {poll.pollType.id === PollTypes.Scale ? (
+            <Row>
+              {poll.options.map((option) => (
+                <OptionButton
+                  key={option.id}
+                  handleSelectOption={handleSelectOption}
+                  option={option}
+                  selectedOptionIds={selectedOptionIds}
+                />
+              ))}
+            </Row>
+          ) : (
             <>
               {poll.options.map((option) => (
                 <OptionRow
@@ -84,19 +93,7 @@ export const BasePoll: React.FC<Props> = ({
                 />
               ))}
             </>
-          ) : null}
-
-          {presentation === PollPresentation.Scale ? (
-            <Row>
-              {poll.options.map((option) => (
-                <OptionButton
-                  handleSelectOption={handleSelectOption}
-                  option={option}
-                  selectedOptionIds={selectedOptionIds}
-                />
-              ))}
-            </Row>
-          ) : null}
+          )}
 
           {confirmToVote ? (
             <Footer

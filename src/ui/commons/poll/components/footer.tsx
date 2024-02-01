@@ -1,4 +1,5 @@
 import React from "react";
+import { usePollz } from "../../../../use-pollz";
 import { ActivityIndicator } from "../../../commons/activity-indicator";
 import { VoteButton, VoteText } from "../styles";
 import { Row } from "./styles";
@@ -16,8 +17,10 @@ export const Footer: React.FC<Props> = ({
   loading,
   confirmText,
 }) => {
+  const { theme } = usePollz();
   return (
     <VoteButton
+      bg={theme?.colors.primary}
       onClick={() => handleVote()}
       disabled={!selectedOptionIds.length || loading}
     >

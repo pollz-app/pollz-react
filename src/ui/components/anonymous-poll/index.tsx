@@ -1,6 +1,5 @@
 import React from "react";
 import { BasePoll } from "../../commons/poll";
-import { PollPresentation } from "../../commons/types";
 import { hook } from "./hook";
 
 type Props = {
@@ -11,7 +10,6 @@ type Props = {
   withoutFeedback?: boolean;
   confirmText?: string;
   greetingsText?: string;
-  presentation?: PollPresentation;
 };
 
 export const AnonymousPoll: React.FC<Props> = ({
@@ -22,7 +20,6 @@ export const AnonymousPoll: React.FC<Props> = ({
   withoutFeedback = false,
   confirmText = "Vote",
   greetingsText = "Thanks for voting!",
-  presentation = PollPresentation.Default,
 }) => {
   const {
     poll,
@@ -44,7 +41,6 @@ export const AnonymousPoll: React.FC<Props> = ({
       handleVote={handleVote}
       loading={loading}
       confirmText={confirmText}
-      presentation={presentation}
     />
   );
 };

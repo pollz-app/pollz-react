@@ -21,7 +21,7 @@ type Props = {
 };
 
 export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
-  const { sdk } = usePollz();
+  const { sdk, theme } = usePollz();
   const [pollName, setPollName] = useState("");
   const [options, setOptions] = useState(["", ""]); // Initial state with one empty option
   const [pollTypeId, setPollTypeId] = useState(PollTypes.SingleChoice); // Initial state with one empty option
@@ -43,10 +43,17 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
 
   const handleOptionChange = useCallback((index: number, value: string) => {
     setOptions((options) => {
-      const updatedOptions = [...options];
-      updatedOptions[index] = value;
-      return updatedOptions;
+      options[index] = value;
+      return [...options];
     });
+
+    setTimeout(() => {
+      (
+        document.querySelectorAll(".option-input")[index] as
+          | HTMLInputElement
+          | undefined
+      )?.focus();
+    }, 0);
   }, []);
 
   const resetPoll = useCallback(() => {
@@ -156,6 +163,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
               isLast={index === options.length - 1}
             >
               <InputField
+                className="option-input"
                 style={{ color: option.trim() ? "#222" : "#888" }}
                 placeholder={"New option"}
                 value={option}
@@ -166,7 +174,11 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
         })}
       </div>
 
-      <CreateButton disabled={!isValid} onClick={handleCreatePoll}>
+      <CreateButton
+        color={theme?.colors.primary}
+        disabled={!isValid}
+        onClick={handleCreatePoll}
+      >
         <CreateButtonText>Confirm</CreateButtonText>
         {creatingPoll && <ActivityIndicator color={"white"} />}
       </CreateButton>
