@@ -67,6 +67,7 @@ export const hook = (
 
     switch (poll.pollType.id) {
       case PollTypes.SingleChoice:
+      case PollTypes.Scale:
         setSelectedOptionIds([optionId]);
 
         if (!confirmToVote) {
