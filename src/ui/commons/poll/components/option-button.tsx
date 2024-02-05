@@ -20,7 +20,9 @@ export const OptionButton: React.FC<Props> = ({
     () => selectedOptionIds.includes(option.id),
     [selectedOptionIds, option.id]
   );
-  const backgroundColor = isSelected ? "#5400a31f" : "white";
+  const backgroundColor = isSelected
+    ? overrideTheme?.colors.primary || "#5400a31f"
+    : "white";
   const borderColor = isSelected
     ? overrideTheme?.colors.primary || theme.colors.primary
     : "#ccc";
