@@ -7,7 +7,7 @@ const config = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "@storybook/addon-themes",
-    "@storybook/themes"
+    "@storybook/themes",
   ],
   framework: {
     name: "@storybook/react-vite",
@@ -15,6 +15,12 @@ const config = {
   },
   docs: {
     autodocs: "tag",
+  },
+  viteFinal: (config) => {
+    // Add react-native-web alias
+    config.resolve.alias["react-native"] = "react-native-web";
+
+    return config;
   },
 };
 export default config;

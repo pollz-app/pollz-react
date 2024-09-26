@@ -1,10 +1,11 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/native";
 import React, { PropsWithChildren } from "react";
+import { View } from "react-native";
 import { PollzProvider } from "../../context";
 import { usePollz } from "../../use-pollz";
 import { ActivityIndicator } from "../commons/activity-indicator";
 
-const CenteredView = styled.div`
+const CenteredView = styled(View)`
   display: flex;
   flex: 1;
   align-items: center;
@@ -37,6 +38,8 @@ export const Provider: React.FC<PropsWithChildren> = ({ children }) => (
   </PollzProvider>
 );
 
-export const ProviderFn = (getStory: () => React.ReactNode) => (
-  <Provider>{getStory()}</Provider>
+export const ProviderFn = (Story: () => React.ReactNode) => (
+  <Provider>
+    <Story />
+  </Provider>
 );

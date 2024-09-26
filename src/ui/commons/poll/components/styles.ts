@@ -1,14 +1,15 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/native";
+import { Pressable, View } from "react-native";
 import { theme } from "../../../themes/base";
 
-export const Row = styled.div`
+export const Row = styled(View)`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 `;
 
-export const Circle = styled.button<{
+export const Circle = styled(Pressable)<{
   active?: boolean;
   color: string | undefined;
 }>`
@@ -25,11 +26,11 @@ export const Circle = styled.button<{
   ${({ active, color = theme.colors.primary }) =>
     active && `background-color: ${color};`}
 `;
-export const OptionButtonLabel = styled.div`
+export const OptionButtonLabel = styled(View)`
   padding: 5px;
   font-size: 18px;
 `;
-export const OptionButtonWrapper = styled.button<{
+export const OptionButtonWrapper = styled(Pressable)<{
   backgroundColor: string;
   borderColor: string;
 }>`

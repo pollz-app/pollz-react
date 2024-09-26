@@ -1,8 +1,9 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/native";
+import { Pressable, TextInput, View } from "react-native";
 import { Text, TextSemiBold } from "../../commons/text";
 import { theme } from "../../themes/base";
 
-export const Container = styled.div`
+export const Container = styled(View)`
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -19,7 +20,7 @@ export const InputLabel = styled(TextSemiBold)`
   font-weight: bold;
 `;
 
-export const InputField = styled.input`
+export const InputField = styled(TextInput)`
   display: flex;
   padding: 8px;
   flex-grow: 1;
@@ -27,7 +28,7 @@ export const InputField = styled.input`
   border: none;
 `;
 
-export const CreateButton = styled.button<{ color?: string | undefined }>`
+export const CreateButton = styled(Pressable)<{ color?: string | undefined }>`
   background-color: ${({ color = theme.colors.primary }) => color};
   padding: 10px;
   border-radius: 5px;
@@ -43,7 +44,7 @@ export const CreateButtonText = styled(Text)`
   font-size: 16px;
 `;
 
-export const CheckboxContainer = styled.div`
+export const CheckboxContainer = styled(View)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,7 +68,7 @@ export const listStyles = {
   flexDirection: "column",
 };
 
-export const OptionWrapper = styled.div<{
+export const OptionWrapper = styled(View)<{
   isFirst: boolean;
   isLast: boolean;
   isError: boolean;

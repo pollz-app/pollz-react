@@ -1,3 +1,15 @@
 {
-  "plugins": ["@emotion/babel-plugin"]
+  "presets": ["@babel/preset-flow"],
+  "plugins": [
+    "@emotion/babel-plugin",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "^react-native$": "react-native-web"
+        }
+      }
+    ],
+    "react-native-web"
+  ]
 }

@@ -1,6 +1,6 @@
 import React from "react";
+import { ActivityIndicator as BaseActivityIndicator } from "react-native";
 import { usePollz } from "../../../use-pollz";
-import { Spinner } from "./styles";
 
 type Props = {
   size?: number;
@@ -9,5 +9,8 @@ type Props = {
 
 export const ActivityIndicator: React.FC<Props> = ({ size, color }) => {
   const { theme } = usePollz();
-  return <Spinner size={size} color={theme?.colors.primary || color} />;
+
+  return (
+    <BaseActivityIndicator size={size} color={theme?.colors.primary || color} />
+  );
 };

@@ -29,12 +29,12 @@ export const NewOption: React.FC<Props> = ({
         style={{ color: newOption.trim() ? "#222" : "#888" }}
         placeholder="Add a new option"
         value={newOption}
-        onChange={(event) => setNewOption(event.currentTarget.value)}
+        onChangeText={setNewOption}
       />
       {addingOption ? (
         <ActivityIndicator size={30} />
       ) : (
-        <AddOptionButton disabled={!newOption.trim()} onClick={handleClick}>
+        <AddOptionButton disabled={!newOption.trim()} onPress={handleClick}>
           <IoIosAdd name="add" size={30} color={theme?.colors.primary} />
         </AddOptionButton>
       )}

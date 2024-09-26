@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/native";
+import { Pressable, View } from "react-native";
 import { Text, TextSemiBold } from "../../commons/text";
 import { theme } from "../../themes/base";
 
@@ -6,7 +7,7 @@ export const VoteText = styled(Text)`
   color: white;
   font-size: 16px;
 `;
-export const VoteButton = styled.button<{ bg: string | undefined }>`
+export const VoteButton = styled(Pressable)<{ bg: string | undefined }>`
   display: flex;
   background-color: ${({ bg = theme.colors.primary }) => bg};
   padding: 10px;
@@ -24,14 +25,14 @@ export const OptionLabel = styled(Text)`
   flex: 1;
 `;
 
-export const Tick = styled.div`
+export const Tick = styled(View)`
   width: 10px;
   height: 10px;
   background-color: white;
   border-radius: 5px;
 `;
 
-export const OptionWrapper = styled.div`
+export const OptionWrapper = styled(View)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,7 +46,7 @@ export const PollName = styled(TextSemiBold)`
   margin-bottom: 8px;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(View)`
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -57,7 +58,7 @@ export const Wrapper = styled.div`
   gap: 10px;
 `;
 
-export const NoPollWrapper = styled.div`
+export const NoPollWrapper = styled(View)`
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -74,7 +75,7 @@ export const VotedText = styled(Text)`
   font-size: 20px;
 `;
 
-export const VotedWrapper = styled.div`
+export const VotedWrapper = styled(View)`
   align-items: center;
   justify-content: center;
   display: flex;
@@ -82,7 +83,7 @@ export const VotedWrapper = styled.div`
   margin: 20px 0;
 `;
 
-export const Row = styled.div`
+export const Row = styled(View)`
   display: flex;
   flex-direction: row;
   align-items: center;

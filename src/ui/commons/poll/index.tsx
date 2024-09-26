@@ -1,5 +1,6 @@
 import { PollTypes, PollWithOptions } from "pollz-js";
 import React from "react";
+import { View } from "react-native";
 import { ActivityIndicator } from "../activity-indicator";
 import { NewOption } from "../new-option";
 import { Footer } from "./components/footer";
@@ -62,12 +63,12 @@ export const BasePoll: React.FC<Props> = ({
       ) : (
         <>
           {canAddOptions && (
-            <div style={{ marginBottom: 8 }}>
+            <View style={{ marginBottom: 8 }}>
               <NewOption
                 addingOption={addingOption}
                 handleAddOption={handleAddOption}
               />
-            </div>
+            </View>
           )}
 
           {poll.pollType.id === PollTypes.Scale ? (

@@ -1,6 +1,7 @@
 import React from "react";
+import { Switch } from "react-native";
 import { usePollz } from "../../../use-pollz";
-import { Slider, SwitchInput, SwitchWrapper } from "./styles";
+import { SwitchWrapper } from "./styles";
 
 type SwitchProps = {
   checked: boolean;
@@ -11,13 +12,17 @@ export const Toggle: React.FC<SwitchProps> = ({ checked, onChange }) => {
   const { theme } = usePollz();
   return (
     <SwitchWrapper>
-      <SwitchInput
-        color={theme?.colors.primary}
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
+      <Switch
+        // @ts-ignore
+        activeThumbColor={theme?.colors.primary}
+        trackColor={{
+          false: "#e9e9e9",
+          true: theme?.colors.primary + "70",
+        }}
+        thumbColor={theme?.colors.primary}
+        value={checked}
+        onValueChange={onChange}
       />
-      <Slider />
     </SwitchWrapper>
   );
 };

@@ -1,6 +1,7 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 
 import { Poll, PollTypes } from "pollz-js";
+import { TextInput, View } from "react-native";
 import { usePollz } from "../../../use-pollz";
 import { ActivityIndicator } from "../../commons/activity-indicator";
 import { Toggle } from "../../commons/toggle";
@@ -24,6 +25,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
   const { sdk, theme } = usePollz();
   const [pollName, setPollName] = useState("");
   const [options, setOptions] = useState(["", ""]); // Initial state with one empty option
+  const optionsRefs = useRef<TextInput[]>([]);
   const [pollTypeId, setPollTypeId] = useState(PollTypes.SingleChoice); // Initial state with one empty option
   const [creatingPoll, setCreatingPoll] = useState(false);
 
@@ -48,11 +50,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
     });
 
     setTimeout(() => {
-      (
-        document.querySelectorAll(".option-input")[index] as
-          | HTMLInputElement
-          | undefined
-      )?.focus();
+      optionsRefs.current[index]?.focus();
     }, 0);
   }, []);
 
@@ -101,6 +99,10 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
 
       return updatedOptions;
     });
+
+    setTimeout(() => {
+      optionsRefs.current[Math.max(index - 1, 0)]?.focus();
+    }, 0);
   }, []);
 
   const handleInput = useCallback(
@@ -129,7 +131,7 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
         style={{ color: pollName.trim() ? "#222" : "#888" }}
         placeholder="Ask your question"
         value={pollName}
-        onChange={(e) => setPollName(e.currentTarget.value)}
+        onChangeText={setPollName}
       />
 
       <CheckboxContainer>
@@ -144,9 +146,10 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
         <CheckboxLabel>Allow multiple responses</CheckboxLabel>
       </CheckboxContainer>
 
-      <div
+      <View
         style={{
-          border: "1px solid #aaa",
+          borderColor: "#aaa",
+          borderWidth: 1,
           borderRadius: 5,
           width: "100%",
         }}
@@ -163,21 +166,23 @@ export const CreatePoll: React.FC<Props> = ({ onPollCreated }) => {
               isLast={index === options.length - 1}
             >
               <InputField
-                className="option-input"
+                ref={(ref) => {
+                  optionsRefs.current[index] = ref as TextInput;
+                }}
                 style={{ color: option.trim() ? "#222" : "#888" }}
                 placeholder={"New option"}
                 value={option}
-                onChange={(e) => handleInput(e.currentTarget.value, index)}
+                onChangeText={(label) => handleInput(label, index)}
               />
             </OptionWrapper>
           );
         })}
-      </div>
+      </View>
 
       <CreateButton
         color={theme?.colors.primary}
         disabled={!isValid}
-        onClick={handleCreatePoll}
+        onPress={handleCreatePoll}
       >
         <CreateButtonText>Confirm</CreateButtonText>
         {creatingPoll && <ActivityIndicator color={"white"} />}
