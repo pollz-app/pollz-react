@@ -1702,7 +1702,7 @@ __metadata:
   resolution: "example-poll-js-front@workspace:."
   dependencies:
     parcel: "npm:^2.9.3"
-    pollz-js: "npm:^1.0.15"
+    pollz-js: "npm:^1.0.21"
     react-dom: "npm:^18.2.0"
   languageName: unknown
   linkType: soft
@@ -2637,13 +2637,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pollz-js@npm:^1.0.15":
-  version: 1.0.15
-  resolution: "pollz-js@npm:1.0.15"
+"pollz-js@npm:^1.0.21":
+  version: 1.0.21
+  resolution: "pollz-js@npm:1.0.21"
   dependencies:
     axios: "npm:^1.6.2"
     socket.io-client: "npm:^4.7.1"
-  checksum: 4fe89d37d69fafeed6c01eba316b01e83640a38d287074d8ebf542d634b495f8498c03f1dcc0d5530c448fc7d61d50b43287d8adff6f6fae4ec8bbc2009a7829
+  checksum: 685bb5b9594ebb10aa871cc39306172e7e693bd7643d6352eb6134bf825c01fe0bf26307232d6afe3a01dc5c819a0f66fd9e0c76e24d61ff0e0a8db4ff41470a
   languageName: node
   linkType: hard
 
