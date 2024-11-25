@@ -21,7 +21,7 @@ export const Footer: React.FC<Props> = ({
   return (
     <VoteButton
       bg={theme?.colors.primary}
-      onClick={() => handleVote()}
+      onPress={() => handleVote()}
       disabled={!selectedOptionIds.length || loading}
     >
       <Row>

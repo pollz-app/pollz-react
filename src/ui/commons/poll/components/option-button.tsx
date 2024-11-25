@@ -35,7 +35,7 @@ export const OptionButton: React.FC<Props> = ({
     <OptionButtonWrapper
       backgroundColor={backgroundColor}
       borderColor={borderColor}
-      onClick={handleClick}
+      onPress={handleClick}
       key={option.id}
     >
       <OptionButtonLabel>{option.label}</OptionButtonLabel>

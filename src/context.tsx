@@ -44,6 +44,8 @@ export const PollzProvider: FC<
     },
   },
 }) => {
+  console.log("PollzProvider");
+
   const sdk = useRef(new PollzSDK());
   const [initialized, setInitialized] = useState(false);
 

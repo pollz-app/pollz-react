@@ -1,4 +1,4 @@
-example/dist
+example/web/dist
 dist/
 node_modules
 .parcel-cache

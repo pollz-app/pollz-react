@@ -1,6 +1,6 @@
+import Icon from "@expo/vector-icons/Ionicons";
 import { Option, PollTypes } from "pollz-js";
 import React from "react";
-import { IoIosCheckmark } from "react-icons/io";
 import { usePollz } from "../../../../use-pollz";
 import { OptionLabel, OptionWrapper, Tick } from "../styles";
 import { Circle } from "./styles";
@@ -25,12 +25,12 @@ export const OptionRow: React.FC<Props> = ({
       <Circle
         color={theme?.colors.primary}
         active={selectedOptionIds.includes(option.id)}
-        onClick={() => handleSelectOption(option.id)}
+        onPress={() => handleSelectOption(option.id)}
       >
         {selectedOptionIds.includes(option.id) && (
           <>
             {pollTypeId === PollTypes.MultipleChoice ? (
-              <IoIosCheckmark color={"white"} size={30} />
+              <Icon name="checkmark" color={"white"} size={30} />
             ) : null}
 
             {[PollTypes.Scale, PollTypes.SingleChoice].includes(pollTypeId) ? (
@@ -40,7 +40,7 @@ export const OptionRow: React.FC<Props> = ({
         )}
       </Circle>
 
-      <OptionLabel onClick={() => handleSelectOption(option.id)}>
+      <OptionLabel onPress={() => handleSelectOption(option.id)}>
         {option.label}
       </OptionLabel>
     </OptionWrapper>

@@ -1,5 +1,5 @@
+import Icon from "@expo/vector-icons/Ionicons";
 import React, { useCallback, useState } from "react";
-import { IoIosAdd } from "react-icons/io";
 import { usePollz } from "../../../use-pollz";
 import { ActivityIndicator } from "../activity-indicator";
 import { AddOptionButton, AddOptionContainer, AddOptionInput } from "./styles";
@@ -35,7 +35,7 @@ export const NewOption: React.FC<Props> = ({
         <ActivityIndicator size={30} />
       ) : (
         <AddOptionButton disabled={!newOption.trim()} onPress={handleClick}>
-          <IoIosAdd name="add" size={30} color={theme?.colors.primary} />
+          <Icon name="add" size={30} color={theme?.colors.primary} />
         </AddOptionButton>
       )}
     </AddOptionContainer>
