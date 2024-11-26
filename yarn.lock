@@ -11298,13 +11298,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pollz-js@npm:^1.0.22":
-  version: 1.0.22
-  resolution: "pollz-js@npm:1.0.22"
+"pollz-js@npm:^1.0.23":
+  version: 1.0.23
+  resolution: "pollz-js@npm:1.0.23"
   dependencies:
     axios: "npm:^1.6.2"
     socket.io-client: "npm:^4.7.1"
-  checksum: 1ee405a81888887d546cbd74c3fffdd3b0a993b782e8bce3b612a00580a2fd09ee3da6a7ab61345b93524b6e35505857e7b89751572e6c98dc9b9e3620d1d472
+  checksum: 82f86154853b30c62dfcec463b6c4dc9b5ada69d97c9193cb4f5620e58c5dd1e5fa8175436bbacff5d8bcfd1e8e644387608dd50e8f9ecc112f3ee6ffe381831
   languageName: node
   linkType: hard
 
@@ -11334,7 +11334,7 @@ __metadata:
     "@types/react": "npm:^18.2.40"
     "@types/react-dom": "npm:^18.2.17"
     parcel: "npm:latest"
-    pollz-js: "npm:^1.0.22"
+    pollz-js: "npm:^1.0.23"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
